@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+include ActionController::Flash 
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
