@@ -200,7 +200,6 @@ DEPENDENCIES
   bootsnap
   byebug
   debug
-  devise
   devise-jwt
   dotenv-rails
   puma (~> 5.0)
