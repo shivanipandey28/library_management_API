@@ -51,3 +51,4 @@ gem "byebug"
 gem 'rack-cors'
 gem 'devise'
 gem 'devise-jwt'
+gem 'dotenv-rails', groups: [:development, :test]
