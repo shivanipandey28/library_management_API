@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-  # before_action :authenticate_user!
   before_action :set_book, only: [:show,:update,:destroy]
 
   def index
@@ -31,10 +30,10 @@ class BooksController < ApplicationController
 
   def destroy
     if @book
-    @book.destroy
-    render json: { message: 'Book deleted successfully'}, status: 200
-   else
-    render json: { error: 'Unable to delete '}, status: 400
+      @book.destroy
+      render json: { message: 'Book deleted successfully'}, status: 200
+    else
+      render json: { error: 'Unable to delete '}, status: 400
    end
   end
 
