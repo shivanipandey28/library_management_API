@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_14_085737) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_17_061313) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "language"
@@ -47,6 +47,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_14_085737) do
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
   end
 
+  create_table "user_books", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "book_id", null: false
+    t.date "borrowed_date"
+    t.date "submission_date"
+    t.date "return_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_user_books_on_book_id"
+    t.index ["user_id"], name: "index_user_books_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -67,4 +79,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_14_085737) do
   add_foreign_key "books", "categories"
   add_foreign_key "books", "conditions"
   add_foreign_key "books", "users"
+  add_foreign_key "user_books", "books"
+  add_foreign_key "user_books", "users"
 end
